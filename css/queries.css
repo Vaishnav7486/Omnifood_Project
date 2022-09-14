@@ -1,0 +1,582 @@
+/* rem and em do not depend on html font-size in media queries, instead, 1rem = 1em = 16px */
+
+/* *************************** */
+/* Below 1344  (for smaller computers) */
+/* *************************** */
+
+/* 1044 / 16 = 62em */
+/* @media (max-width: 40em){
+  .section-hero{
+    max-width: 105rem;
+  }
+}
+
+this thing seemed unnecessary */
+
+@media (max-width: 86.121em) {
+  .hero-image-box {
+    padding-left: 0;
+  }
+  .heading-primary{
+    font-size: 5.6rem;
+  }
+}
+
+/*       *********************************       */
+
+@media (max-width: 65em) {
+  .hero-image-box,
+  .hero-text-box {
+    padding-left: 0;
+    padding: 2.4rem;
+  }
+
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  html {
+    /* 9px / 16px = 9/16 = 0.5625 = 56.25 % */
+    font-size: 56.25%;
+  }
+
+  .hero-image-box,
+  .hero-text-box {
+    padding-left: 0;
+    padding: 2.4rem;
+  }
+
+  /* .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  } */
+
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  /* to see the change in the grid column and row size and all,
+  see the Japaneese Gyozas and Avacado salad section */
+
+  .heading-secodary {
+    font-size: 3.6rem;
+  }
+
+  .tertiary-heading {
+    font-size: 2.4rem;
+  }
+
+  .header {
+    /* padding: 0 5rem; */
+  }
+
+  .hero {
+    gap: 3.2rem;
+  }
+
+  .main-navigation-list {
+    gap: 1.4rem;
+  }
+
+  .testimonials-container {
+    padding: 9.6rem 0.4rem;
+  }
+
+  .pricing-plan--conplete::before {
+    right: -35.5px;
+  }
+}
+
+/* *************************** */
+/* Below 909px (for smaller tablets) */
+/* *************************** */
+
+@media (max-width: 56.68em) {
+  /* 8px / 16px = 0.5 = 50% */
+  html {
+    font-size: 50%;
+  }
+
+  /* .pricing-plan--conplete::before{
+    top: 24px;
+  } */
+}
+
+/*   *****************************************       */
+/* *************************** */
+/* Below 1040 px  */
+/* *************************** */
+
+@media (max-width: 44.3em) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 5.2rem;
+    gap: 0.8rem;
+  }
+
+  .pricing-plan--conplete::before {
+    right: -35.5px;
+  }
+
+  /* Now this puts things in center */
+  .hero-text-box,
+  .hero-image-box {
+    text-align: center;
+  }
+
+  .heading-primary {
+    margin-bottom: 3.4rem;
+  }
+
+  /* This thing - meals delivered is a flexbox. so text-align center
+  is not the thing that is going to work here */
+  .delivered-meals {
+    justify-content: center;
+  }
+
+  .hero-image {
+    width: 70%;
+  }
+
+  .logo-container img {
+    height: 1.8rem;
+  }
+
+  .step-number {
+    font-size: 7.4rem;
+    font-weight: 500;
+  }
+
+  .meal-text-content {
+    padding: 0 0.8rem 0.8rem 0.8rem;
+  }
+
+  .testimonial-section {
+    grid-template-columns: 1fr;
+    gap: 4.8rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .testimonials-container {
+    padding: 1.4rem;
+  }
+
+  .pricing-plan {
+    width: 30rem;
+  }
+
+  .meal-title {
+    text-align: center;
+  }
+
+  .features-container {
+    text-align: center;
+  }
+
+  .cta {
+    /* 3/5 = 60% + 2/5 = 40% */
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .cta-text {
+    margin-bottom: 3.2rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+    text-align: center;
+  }
+
+  .signup--btn {
+    padding: 1.8rem 1.6rem;
+    max-width: 22rem;
+    display: block;
+    margin: auto;
+    margin-top: 1.2rem;
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    /* the backdrop filter is a nice effect to use and i think this could be used in the top navigation bar
+    but the problem with the backdrop filter is that it don't work in safari*/
+    position: absolute;
+    /* the relation of this absolute is not mentioning anywhere as we
+    require this thing to be overridden on the entire screen
+    we have to give the relative positioning
+       THIS THING IS ACTUALLY NECESSARY    */
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+
+    /* hide navigation */
+    /* Allow no transition */
+    /* display: none; */
+
+    /* 1- Hide it visually */
+    opacity: 0;
+
+    /* 2 - Make it inaccessible to mouse and keyboard
+      - this has to be done bcos, --- display none would act as the thing is compoletely removed from the page,
+      but as we are just hiding the opacity this doesnot remove the content compleately,
+      so when using keyboard and 'tab' thing it will be still accessible this is not good,
+      in order to do that we set pointer events - none  */
+    pointer-events: none;
+
+    /* 3  - Hide from screen readers */
+    visibility: hidden;
+
+    /* these three things together will do the same as that of the display hidden */
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  /* we give this in order, we need to show the close icon only when the .nav-open thing exists in the
+  page, --- by plan we will remove and add the .nav-open upon clicking events */
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  /* When teh nav-open class is active we need to remove the menu icon and show only the close icon */
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-list-last-cild:link,
+  .main-list-last-cild:visited {
+    padding: 1.8rem 3.2rem;
+  }
+
+  .main-navigation-list a:link,
+  .main-navigation-list a:visited {
+    font-size: 2.2rem;
+  }
+
+  .main-navigation-list {
+    flex-direction: column;
+    gap: 5.8rem;
+  }
+
+  .btn-mobile-nav {
+    display: block;
+  }
+}
+
+/* *************************** */
+/*       Below 649.6 px
+      for smaller tablets      */
+/* *************************** */
+
+@media (max-width: 40.6rem) {
+  .hero {
+    padding: 0 5.2rem;
+  }
+
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diets {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-bottom: 3.2rem;
+  }
+
+  .step-img {
+    max-height: 36rem;
+  }
+
+  .step-img-box::before {
+    height: 33rem;
+    width: 33rem;
+  }
+  .step-img-box::after {
+    height: 26rem;
+    width: 26rem;
+  }
+
+  .pricing-plan--conplete::before {
+    right: -37.5px;
+    top: 3rem;
+  }
+
+  .grid {
+    row-gap: 1.8rem;
+  }
+
+  .pricing-plan {
+    width: 28rem;
+  }
+
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 8.6rem;
+  }
+
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+  }
+
+  .logo-col,
+  .address-col {
+    grid-column: span 3;
+  }
+
+  /* .grid--footer
+.nav-col
+.logo-col,.address-col -- these things makes the bottom footer bar split into 2 and does the alignment on that */
+}
+
+/* *************************** */
+/*       Below 552 px
+       for mobile phones       */
+/* *************************** */
+
+@media (max-width: 34.5rem) {
+  html {
+    font-size: 66%;
+  }
+
+  .footer-heading {
+    font-size: 1.4rem;
+  }
+
+  .footer-link {
+    font-size: 1.4rem;
+  }
+
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols,
+  .testimonials,
+  .testimonial-section {
+    grid-template-columns: 1fr;
+    row-gap: 4.4rem;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
+  .meal-text-content {
+    padding: 1.8rem 4.8em;
+    padding-bottom: 4.8rem;
+  }
+
+  .section-hero {
+    padding: 3.2rem 2rem;
+  }
+
+  .testimonials {
+    text-align: center;
+  }
+
+  .hero,
+  .hero-text-box {
+    padding: 0 0.8rem;
+  }
+
+  .logo-container img {
+    height: 1rem;
+  }
+
+  .testimonial-text {
+    margin-top: 1rem;
+  }
+
+  .testimonial-name {
+    font-size: 1.8rem;
+  }
+
+  .container,
+  .container-step,
+  .testimonial-section {
+    padding: 0 2.4rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 2.4rem;
+  }
+
+  .testimonials-container {
+    padding-top: 7.4rem;
+  }
+
+  .pricing-plan {
+    width: 29rem;
+  }
+
+  .meal-title {
+    text-align: left;
+  }
+
+  .pricing-plan--starter,
+  .pricing-plan--conplete {
+    justify-self: center;
+  }
+
+  .pricing-plan--conplete::before {
+    right: -51.5px;
+    top: 29.2px;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-text-box {
+    text-align: center;
+  }
+
+  .cta-img-box {
+    height: 32rem;
+    grid-row: 1;
+  }
+
+  .footer {
+    margin-top: 6.8rem;
+  }
+
+  .step-img {
+    max-height: 32rem;
+  }
+
+  .step-img-box::before {
+    height: 30rem;
+    width: 30rem;
+  }
+  .step-img-box::after {
+    height: 23rem;
+    width: 23rem;
+  }
+
+  .container-step {
+    margin-bottom: 7.4rem;
+  }
+
+  .step-img-box:nth-child(2) {
+    grid-row: 1;
+    /* this thing moves the image - which actually as the second in the grid,
+  which is now moved to the top / to the first row of the grid with the above command  */
+  }
+  /*
+.step-img-box:nth-child(6){
+  grid-row: 5;
+} */
+
+  /* this moves the image of the phone closer to the text regarding the steps */
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+
+  .features-container {
+    padding: 0 3.2rem;
+  }
+
+  .meal {
+    justify-self: center;
+    width: 85%;
+  }
+}
+
+/* *************************** */
+/* Below 1200 px ( for landscape tablets )
+
+consider this with the 1040px */
+/* *************************** */
+
+/* *************************** */
+/* Below 1040 px  */
+/* *************************** */
+
+/* @media(max-width:45em){
+
+  html{
+    font-size: 2px;
+  }
+
+}
+
+this sucks
+*/
+
+/* Next breaking point - 816px */
+
+/* *************************** */
+/*  Fixing safari flexbox gap  */
+/* *************************** */
+/* the codes below are for making the flexbox gap property to work in all the browsers */
+/* gap koduthedath okke veendum vertical or horizontal margin kodukkunnu - thats it - but by checking whether the gap property can be applied or not
+the thing is given in the media queries too */
+
+.no-flexbox-gap .main-nav-list li:not(:last-child) {
+  margin-right: 4.8rem;
+}
+
+.no-flexbox-gap .list-item:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .list-icon:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .delivered-faces {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .meal-attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .meal-icon {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .footer-row div:not(:last-child) {
+  margin-right: 6.4rem;
+}
+
+.no-flexbox-gap .social-links li:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.no-flexbox-gap .footer-nav li:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 75em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4.8rem;
+  }
+}

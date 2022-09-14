@@ -1,0 +1,267 @@
+/*
+
+--- 01 TYPOGRAPHY SYSTEM -
+
+Line height -
+
+paragraph default - 1.6
+DEFAULT 1.2
+
+font weight -
+
+DEFAULT: 400
+Medium: 500
+Semibold: 600
+bold: 700
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+
+--- 02 COLORS
+
+primary color #e67e22
+
+tint -  #fdf2e9
+
+shades - #f76707
+
+Accents - #d8f5a2   #c0eb75   #a9e34b
+
+gray - #555
+
+
+--- 05 SHADOWS
+
+--- 06 BORDER RADIUS
+
+Default - .7rem
+Small buttons -0.5rem
+
+--- 07 WHITE SPACE
+
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+
+
+
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* box-sizing: border-box -- dont forget this thing  */
+
+
+ {
+  /* font-size: 10px; */
+  /* this wil define the font size of rem, if this is not defined,
+  then it will be automatically fieed as the browsers default font size
+  that is 16 px.
+  it is preferred to give it in percentage.
+  this also causes,
+  say, the user sets a default font size to some enormous or small font size,
+  that is then not going to affect the font size of the page.
+  so we give this in order of percentage - percentage of teh defautl font size
+  we set it in a 62.5 percentage - this represents 10px if default font size is 16px*/
+  /* as said this helps to resize the font and all other sizes of the browser
+   in preference of the default settings of the user */
+  /* percentage of users browser font-size settings */
+  font-size: 62.5%;
+
+  /* anything that overflows the x axis / horizontally is hidden */
+  overflow-x: hidden;
+
+  /* for general scrolling but his does not works on safari the default ios browser */
+  scroll-behavior: smooth;
+
+  /* imo while creating sections give them padding on top - as the link in the nav really directs to the
+    exact place where the section starts - so padding would be nice to apply. */
+}
+
+body {
+  line-height: 1.2;
+  font-weight: 400;
+  color: #555;
+  font-family: "Rubik", sans-serif;
+
+  /* anything that overflows the x axis / horizontally is hidden
+if we dont give the overflow direction, then page will not able to scroll at all */
+  /* this thing only works if there is nothing absolutely positioned to the body */
+  overflow-x: hidden;
+}
+
+/* **************************** */
+/* GENERAL REUSABLE COMPONENTS */
+/* **************************** */
+
+.heading-primary,
+.heading-secondary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.7px;
+}
+
+.heading-primary {
+  font-size: 5.4rem;
+  line-height: 0.95;
+  margin-bottom: 2.4rem;
+}
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1;
+  margin-bottom: 6.4rem;
+  background: -webkit-linear-gradient(45deg, #333, #555, #333, #555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1.5rem 2.3rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 9px;
+  transition: all 0.2s;
+}
+
+.btn:active,
+.btn:hover {
+  /* we give this all thing because it selects all the propertices mentioned to the button -
+  and give the transition to all the properties of the buttons. */
+  transition: all 0.2s;
+}
+
+/* HELPER /SETTINGS CLASSES */
+
+/* this is a helper class which is used to - define some specific functions to some specific elements
+by giving them a special class
+these properties may not be intented on a lot other elements */
+.margin-right-sm {
+  margin-right: 2.4rem !important;
+  margin-bottom: 2.4rem !important;
+}
+
+/* a helper class */
+.margin-bottom-md {
+  margin-bottom: 4.8rem;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* *************************** */
+/* REUSABLE GRID CLASS */
+/* *************************** */
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 8.6rem;
+  justify-content: center;
+}
+
+/* .grid:not(:last-child){
+   margin-bottom: 50rem;
+  this is also a kind of way of making child elements
+}
+
+this is given - for -
+we give margin-bottom kind of things to all the things in a grid - which will have effect in all the things in grid
+and in order to remove the margin-bottom for the last child element we select the last child element and removes the margin
+this - not last child thing will give the margin or anything that is required to all the elements in a grid
+except for the last child
+we can make use of this in cases of like giving margin things
+
+the given styling in it is given to all the grid elements if it is not the last child
+
+*/
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8.6rem;
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* this container could be also used as a reusable one ie.,
+this containter could be used to style any thing that is needed to
+have a fixed width of some pixel - normally used to give mostly all the components
+of the webpage a standard size.
+1200 px is kind of the size given as a standard max-width */
+.container-step {
+  max-width: 105rem;
+  margin: 0 auto;
+  padding: 0 5rem;
+  margin-bottom: 8.6rem;
+}
+.container {
+  max-width: 105rem;
+  padding: 0 5rem;
+  margin: 0 auto;
+}
+
+strong {
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 2.2rem;
+  padding: 2rem 0;
+  background: -webkit-linear-gradient(45deg, #333, #555, #333, #555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-left: 1.4rem;
+  color: #454545;
+}
+
+.list-items {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.list-icon {
+  font-size: 2.4rem;
+  color: #e67e22;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 0.1px dotted #454545; */
+  /* outline-offset: -3px; */
+  /* box-shadow: 0 0 0.8rem .2rem rgba(230, 125, 34, 0.315);
+  border-radius: 5px; */
+}
+/* this thing removes all the inside border or that thing which comes when we click on a button
+or pressing a tab space .........
+just giving the outline none and leaving it there is never a good thing,
+it makes inaccessible for those who access the webpage just throught keyboard,
+so we give, the outline with dotted ore things like that, which is really appreiatable*/
